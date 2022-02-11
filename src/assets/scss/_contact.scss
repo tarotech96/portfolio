@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
+
+@mixin center($extend: true) {
+  @if $extend {
+      @extend %center;
+  } @else {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+  }
+}

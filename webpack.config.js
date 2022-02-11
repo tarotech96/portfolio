@@ -21,21 +21,21 @@ const devServer = {
 };
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: ["babel-polyfill", "./src/index.tsx"],
   devtool: "source-map",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     modules: ["node_modules"],
   },
   output: {
-    path: isProduction ? `${__dirname}/../root` : `${__dirname}/dist`,
-    filename: "taro-website.js",
+    path: isProduction ? `${__dirname}/build` : `${__dirname}/dist`,
+    filename: "bundle.js",
     publicPath: "/",
   },
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.(tsx|jsx|ts|js)$/,
         exclude: /node_modules/,
         use: [
           {
@@ -53,11 +53,15 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
+  ignoreWarnings: [/Failed to parse source map/], //keeps source maps, and just removes the spam warning
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
-    isDevelopment && new Dotenv(),
     isProduction && new EntryOptionPlugin(["ENTRY_KEY", "VERSION"]),
     new MiniCssExtractPlugin({
       filename: "styles.css",
@@ -65,6 +69,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    isDevelopment &&
+      new Dotenv({
+        path: ".env",
+      }),
   ].filter(Boolean),
   devServer,
 };

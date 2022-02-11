@@ -1,19 +1,31 @@
-# Template config React Typescript and Webpack
+### My Portfolio
 
-※ Learn more about React
-[![N|Solid](https://reactjs.org/logo-og.png)](https://reactjs.org/)
+# Steps for build my portfolio
 
-※ Learn more about Typescript
-[![N|Solid](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png)](https://www.typescriptlang.org/docs/handbook/intro.html)
+    - Setup environment
+        - Webpack 
+        - React 
+        - TypeScript
+        - Tailwind CSS
 
-※ Learn more about Webpack
-[![Build Status](https://media.vlpt.us/images/suyeonme/post/252fd5ac-36fb-4e14-a436-25ec2914f3ac/header.jpeg)](https://webpack.js.org/)
+    - Create sidebar
+        - Logo
+        - MenuBar
+        - SocialMedia
 
-## Bash for run project
+    - Setup routing
+        - Use react-router-dom for setting up routes of the website
 
-- Install dependencies
-    - yarn add
-- Run project
-    - yarn start
-- Build project
-    - yarn build
+    - Create main section
+        - Use tailwind for styling
+        - Main title
+        - Home page 
+        - About page
+        - Skills page
+        - Work page
+        - Contact page 
+        - Blog page
+        - Canvas: using threejs for creating 3D
+
+    - Use Recoil for defining global state
+    - Use axios to call API

@@ -1,0 +1,14 @@
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: 9;
+  opacity: 0.5;
+  transition-timing-function: swing;
+  transition-duration: 0.5s;
+}
+
+.overlay.show {
+  width: 100%;
+}

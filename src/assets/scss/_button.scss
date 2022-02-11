@@ -1,0 +1,26 @@
+.contact-button{
+  @include center;
+  font-family: 'Raleway', sans-serif;
+  transition: .6s;
+  overflow: hidden;
+}
+
+.contact-button:focus{
+    outline: 0;
+  }
+
+.contact-button:hover{
+    background: #3e4749;
+    cursor: pointer;
+    .contact-form button:before{
+      transform: translateX(300px)  skewX(-15deg);  
+      opacity: 0.6;
+      transition: .7s;
+    }
+  }
+
+.contact-button:after{
+    transform: translateX(300px) skewX(-15deg);  
+    opacity: 1;
+    transition: .7s;
+  }

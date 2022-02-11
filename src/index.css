@@ -1,0 +1,18 @@
+/* Import tailwind css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./assets/scss/index.scss";
+
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}

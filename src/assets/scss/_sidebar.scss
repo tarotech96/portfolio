@@ -1,0 +1,182 @@
+.sidebar {
+  width: 13rem;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background-color:  #181818;
+}
+
+.logo {
+  background-color: #000000;
+  height: 25%;
+  max-width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-box-align: center;
+}
+
+.logo img {
+  object-fit: contain;
+}
+
+.menu-bar {
+  height: 50%;
+  max-height: 100%;
+  border-top: 1px solid #282828;
+}
+
+.menu-bar ul li a {
+  color: #909096;
+  border-bottom: 1px solid #282828;
+  transition: color 0.3s, background-color 0.3s;
+  font-size: 1.2rem;
+}
+
+.menu-bar ul li a:hover {
+  color: #08fdd8;
+  outline: none;
+}
+
+.menu-bar ul li a:focus {
+  outline: 0;
+}
+
+.social-media {
+  height: 20rem;
+  color: #909096;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #282828;
+}
+
+.social-media img {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1023px) {
+  .nav-mobile {
+    display: block !important;
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    transition-duration: 0.5s;
+    transition-timing-function: swing;
+    overflow: hidden;
+    z-index: 30;
+  }
+  
+  .nav-mobile.open {
+    height: 100vh;
+    background-color: #6d3131;
+  }
+  
+  .nav-mobile ul {
+    width: 100%;
+    padding: 100px;
+  }
+  
+  .nav-mobile ul li {
+    list-style: none;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .nav-mobile ul li a {
+    padding: .5rem 0 0 0;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: #ffff;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+  
+  .nav-mobile .nav-links.open {
+    display: inline;
+  }
+  
+  .navToggle {
+    display: block !important;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    right: 50px;
+    transition-duration: 0.5s;
+  }
+  
+  .navToggle .icon {
+    transition-duration: 0.25s;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    top: 30px;
+    right: 15px;
+    background-color: #ffffff;
+    touch-action: none;
+  }
+  
+  .navToggle .icon::before,
+  .navToggle .icon::after {
+    transition-duration: 0.25s;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #ffffff;
+    content: "";
+  }
+  
+  .navToggle .icon::before {
+    top: -7px;
+    left: 0;
+  }
+  
+  .navToggle .icon::after {
+    top: 7px;
+    left: 0;
+  }
+  
+  .navToggle .icon:hover {
+    cursor: pointer;
+  }
+  
+  .navToggle .icon:hover .icon::before {
+    top: -10px;
+  }
+  
+  .navToggle .icon:hover .icon::after {
+    top: 10px;
+  }
+  
+  .navToggle.open {
+    transition-duration: 1s;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+  
+  .icon.close {
+    transition-duration: 0.5s;
+    background-color: transparent;
+  }
+  
+  .icon.close:before {
+    transition-duration: 0.5s;
+    top: 0;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  
+  .icon.close:after {
+    transition-duration: 0.5s;
+    top: 0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+}

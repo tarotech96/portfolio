@@ -9,6 +9,14 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "rootPath/*": ["*"],
+    }
+  },
+
+  "exclude": [
+    "./node_modules"
+  ]
 }
