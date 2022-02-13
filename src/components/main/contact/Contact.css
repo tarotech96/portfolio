@@ -1,0 +1,16 @@
+
+.contact .contact-button:hover {
+  color: #000;
+  opacity: 0.99;
+}
+
+.contact .contact-button::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.contact .contact-button:hover:after {
+  width: 120%;
+}

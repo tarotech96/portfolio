@@ -17,3 +17,5 @@ export const skills = [
   { skill: "Git", position: [0, 0, 2], color: "#A8BE95" },
   { skill: "Docker", position: [-1, -1, 2], color: "#73F106" }
 ];
+
+

@@ -1,26 +1,36 @@
-.contact-button{
-  @include center;
-  font-family: 'Raleway', sans-serif;
-  transition: .6s;
+button,
+button::after {
+  -webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+button {
+  position: relative;
   overflow: hidden;
 }
 
-.contact-button:focus{
-    outline: 0;
-  }
+button::before,
+button::after {
+  background: #0EFDD8;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
+}
 
-.contact-button:hover{
-    background: #3e4749;
-    cursor: pointer;
-    .contact-form button:before{
-      transform: translateX(300px)  skewX(-15deg);  
-      opacity: 0.6;
-      transition: .7s;
-    }
-  }
+button:hover {
+  color: #000;
+}
 
-.contact-button:after{
-    transform: translateX(300px) skewX(-15deg);  
-    opacity: 1;
-    transition: .7s;
-  }
+button::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+button:hover:after {
+  width: 120%;
+}

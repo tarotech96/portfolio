@@ -13,7 +13,7 @@ const useBlog = (): {
     setLoading(true);
     getBlogs()
       .then((data) => {
-        setBlogs(data.articles);
+        setBlogs(data);
       })
       .catch((error) => {
         console.error(error);

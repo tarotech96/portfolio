@@ -17,7 +17,7 @@ const MySkill: React.FC<{ title: string }> = ({
             </span>
           ))}
         </div>
-        <p className="text-xl leading-8 mt-8 break-all">
+        <p className="text-xl sm:text-base leading-8 mt-8 break-all">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit libero
           lectus duis massa ante. Magna sed ut enim amet ipsum. Metus, faucibus
           feugiat ullamcorper ac ut nulla dictum. Purus praesent mi massa ac

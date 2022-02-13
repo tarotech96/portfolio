@@ -6,9 +6,10 @@ import SocialMedia from "./SocialMedia";
 
 const SideBar = () => {
   const toggleMenu = useCallback(() => {
-    console.log('clicked');
     const navMobile = document.querySelector(".nav-mobile");
     const hamburger = document.querySelector(".icon");
+    const links = document.querySelectorAll(".nav-links");
+
     if (!navMobile?.classList.contains("open")) {
       navMobile?.classList.toggle("open");
     } else {
@@ -20,13 +21,20 @@ const SideBar = () => {
     } else {
       hamburger?.classList.remove("close");
     }
+
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        navMobile?.classList.remove("open");
+        hamburger?.classList.remove('close');
+      });
+    });
   }, []);
 
   return (
     <>
       <div className="nav-mobile hidden">
         <div className="navToggle">
-          <div onClick={toggleMenu} className="icon"></div>
+          <div onClick={toggleMenu} className="icon cursor-pointer"></div>
         </div>
         {/* nav-links is used when display on mobile */}
         <ul className="nav-links lg:mt-28">
