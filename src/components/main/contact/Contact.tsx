@@ -1,7 +1,49 @@
-import React from "react";
-import './Contact.css';
+import React, { useRef, useState } from "react";
+import "./Contact.css";
+import emailjs from "@emailjs/browser";
+import CustomButton from "../../common/CustomButton";
+
+const SERVICE_ID = "service_sslzwco";
+const TEMPLATE_ID = "template_i5kecna";
+const USER_ID = "user_TcFFfrRDCEvqrrUP9e4n2";
+
+type NotifyType = {
+  isShow: boolean;
+  message: string;
+};
+
+const initialState: NotifyType = {
+  isShow: false,
+  message: "Thanks for your contacting me",
+};
 
 const Contact: React.FC<{ title: string }> = ({ title = "Contact me" }) => {
+  const form =
+    useRef<HTMLFormElement>() as React.MutableRefObject<HTMLFormElement>;
+  const [notify, setNotify] = useState<NotifyType>(initialState);
+
+  const sendMail = (event: any) => {
+    event.preventDefault();
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID)
+      .then((result) => {
+        if (result.status === 200) {
+          setNotify((prevState) => ({
+            ...prevState,
+            isShow: true,
+            message: "Thanks for your contacting me",
+          }));
+        }
+      })
+      .catch((error) => {
+        setNotify((prevState) => ({
+          ...prevState,
+          isShow: true,
+          message: "Sent message failed",
+        }));
+      });
+  };
+
   return (
     <div className="main contact text-white flex flex-row space-x-4 lg:flex-col h-full">
       <div className="left-section w-1/2 mt-14 ml-14 lg:w-full lg:ml-0">
@@ -22,11 +64,12 @@ const Contact: React.FC<{ title: string }> = ({ title = "Contact me" }) => {
           the form.
         </p>
         <div className="contact-form mt-28">
-          <form autoComplete="off">
+          <form ref={form} onSubmit={sendMail} autoComplete="off">
             <div className="flex flex-row lg:flex-col">
               <input
                 className="border-none outline-none rounded w-1/2 mx-1 mb-4 lg:w-full py-3 px-3 text-white bg-[#2B2B2B]"
-                id="username"
+                id="name"
+                name="name"
                 type="text"
                 placeholder="Name"
               />
@@ -34,6 +77,7 @@ const Contact: React.FC<{ title: string }> = ({ title = "Contact me" }) => {
                 className="border-none outline-none rounded w-1/2 mx-1 mb-4 lg:w-full py-3 px-3 text-white bg-[#2B2B2B]"
                 id="email"
                 type="text"
+                name="email"
                 placeholder="Email"
               />
             </div>
@@ -42,6 +86,7 @@ const Contact: React.FC<{ title: string }> = ({ title = "Contact me" }) => {
                 className="border-none outline-none rounded w-full py-3 px-3 text-white bg-[#2B2B2B]"
                 id="subject"
                 type="text"
+                name="subject"
                 placeholder="Subject"
               />
             </div>
@@ -49,14 +94,21 @@ const Contact: React.FC<{ title: string }> = ({ title = "Contact me" }) => {
               <textarea
                 className="border-none h-48 outline-none rounded w-full text-white bg-[#2B2B2B]"
                 id="subject"
+                name="message"
                 placeholder="Message"
               />
             </div>
-            <div className="float-right">
+            {/* <div className="float-right">
               <button className="contact-button border border-[#03c5a9] px-6 py-2 text-[#03c5a9] text-base font-normal">
                 Send message
               </button>
-            </div>
+            </div> */}
+            <CustomButton
+              className="float-right"
+              message={notify.message}
+              buttonName="Send message"
+              status={notify.isShow}
+            />
           </form>
         </div>
       </div>
