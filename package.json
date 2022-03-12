@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "Template for configuring react project with webpack and typescript ",
   "scripts": {
-    "test": "test",
-    "build:css": "craco",
     "start": "webpack serve --mode development",
     "build": "NODE_ENV=production webpack --mode production",
     "invalidate": "aws cloudfront create-invalidation --distribution-id E3PRMT973T52MN --paths \"/*\"",
@@ -22,6 +20,7 @@
     "@types/three": "^0.137.0",
     "animate.css": "^4.1.1",
     "axios": "^0.25.0",
+    "framer-motion": "^6.2.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",

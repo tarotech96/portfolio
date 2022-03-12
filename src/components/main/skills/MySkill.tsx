@@ -2,7 +2,7 @@ import React from "react";
 import CardSkill from "./CardSkill";
 
 const MySkill: React.FC<{ title: string }> = ({
-  title = "Skills & Experience",
+  title = "Skills",
 }) => {
   return (
     <div className="main text-white flex lg:flex-col lg:h-full">
